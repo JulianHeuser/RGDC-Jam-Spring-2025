@@ -17,7 +17,7 @@ func _ready() -> void:
 	var current_pin : Joint2D = DampedSpringJoint2D.new()
 	current_pin.length = spring_length
 	current_pin.stiffness = 50.0
-	current_pin.damping = 0.5
+	current_pin.damping = 0.0
 	add_child(current_pin)
 	current_pin.node_a = end_point1.get_path()
 	
@@ -25,14 +25,16 @@ func _ready() -> void:
 	for i in segment_count:
 		var rope : Node2D = load("res://RopeSegment.tscn").instantiate()
 		
-		current_pin.add_child(rope)
+		add_child(rope)
+		rope.position = Vector2(segment_size * i, 0)
+		
 		current_pin.node_b = rope.get_path()
 		
 		if i == segment_count - 1:
 			current_pin = DampedSpringJoint2D.new()
 			current_pin.length = spring_length
 			current_pin.stiffness = 50.0
-			current_pin.damping = 0.5
+			current_pin.damping = 0.0
 		else:
 			current_pin = PinJoint2D.new()
 		rope.add_child(current_pin)
