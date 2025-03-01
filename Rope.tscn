@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl88cq8mwj0cx"]
+
+[ext_resource type="Script" uid="uid://de18xiqgix6c6" path="res://rope_creator.gd" id="1_ns3r3"]
+[ext_resource type="Texture2D" uid="uid://d0lo4bryni07m" path="res://icon.svg" id="2_ns3r3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dgmm"]
+
+[node name="Rope" type="Node2D" node_paths=PackedStringArray("end_point1", "end_point2")]
+script = ExtResource("1_ns3r3")
+end_point1 = NodePath("Endpoint1")
+end_point2 = NodePath("Endpoint2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.795, 1.795)
+
+[node name="Endpoint1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoint1"]
+shape = SubResource("RectangleShape2D_1dgmm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Endpoint1"]
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("2_ns3r3")
+
+[node name="Endpoint2" type="StaticBody2D" parent="."]
+position = Vector2(323, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoint2"]
+shape = SubResource("RectangleShape2D_1dgmm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Endpoint2"]
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("2_ns3r3")
