@@ -12,15 +12,26 @@ var crush_obj: Node
 func _ready() -> void:
 	crush_event.connect(CrushMgr.crush_event)
 
+	
+func _process(delta: float) -> void:
+	pass
+	
+func _physics_process(delta: float) -> void:
+	pass
+	
+# don't remove. I'm doing important work!
+func crushable() -> void:
+	pass
+
 # On the rigid body:
-func _integrate_forces(state : PhysicsDirectBodyState2D):
+func _integrate_forces(state : PhysicsDirectBodyState2D) -> void:
 	var crush_factor: float = 0;
-	for contact_index in state.get_contact_count():
+	for contact_index: int in state.get_contact_count():
 		var object_hit := state.get_contact_collider_object(contact_index)
 		if (is_instance_valid(object_hit)): # To fix a case where an object hits the player as player is deleted during level transition (intermission)
 			var imp := state.get_contact_impulse(contact_index)
 			var collide_obj := state.get_contact_collider_object(contact_index)
-			if !collide_obj.to_string().contains("Rope"):
+			if collide_obj.has_method("crushable"):
 				crush_obj = collide_obj
 			
 			crush_factor += imp.length()
