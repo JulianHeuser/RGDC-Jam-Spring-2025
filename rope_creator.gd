@@ -5,7 +5,7 @@ extends Node2D
 
 @export var segment_count : int = 10
 
-@export var move_speed : int = 50
+@export var move_speed : int = 150
 
 @export var segment_size : int = 20
 
@@ -45,11 +45,11 @@ func _physics_process(delta: float) -> void:
 	if (end_point1.position + endpoint1_movement).distance_to(end_point2.position + endpoint2_movement) > segment_size * segment_count:
 		var diff := (end_point1.position - end_point2.position).normalized()
 		var rotated := endpoint1_movement.rotated(-atan2(diff.y, diff.x))
-		rotated.x = 0
+		rotated.x = min(0, rotated.x)
 		endpoint1_movement = rotated.rotated(atan2(diff.y, diff.x))
 		
 		rotated = endpoint2_movement.rotated(-atan2(-diff.y, -diff.x))
-		rotated.x = 0
+		rotated.x = min(0, rotated.x)
 		endpoint2_movement = rotated.rotated(atan2(-diff.y, -diff.x))
 	
 	if (endpoint1_movement.length() > 0):

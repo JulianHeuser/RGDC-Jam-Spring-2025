@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsoc7yqw2jmqh"]
+[gd_scene load_steps=8 format=3 uid="uid://dsoc7yqw2jmqh"]
 
 [ext_resource type="PackedScene" uid="uid://bk64v7oudt0cm" path="res://Tomato.tscn" id="1_kyxg0"]
 [ext_resource type="Script" uid="uid://coc6yeel62a5f" path="res://level_1_tst.gd" id="1_mc20k"]
+[ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="2_cove1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kyxg0"]
 normal = Vector2(0, 1)
@@ -17,55 +18,59 @@ normal = Vector2(-1, 0)
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_mc20k")
 
+[node name="Rope" parent="." instance=ExtResource("2_cove1")]
+segment_count = 20
+
 [node name="Tomato" parent="." instance=ExtResource("1_kyxg0")]
 position = Vector2(359, 10)
-friction = 0
 
 [node name="Tomato2" parent="." instance=ExtResource("1_kyxg0")]
 position = Vector2(63, -87)
-friction = 0
 
 [node name="Tomato3" parent="." instance=ExtResource("1_kyxg0")]
 position = Vector2(-36, 26)
-friction = 0
 
 [node name="Tomato4" parent="." instance=ExtResource("1_kyxg0")]
 position = Vector2(247, -131)
-friction = 0
 
 [node name="Tomato5" parent="." instance=ExtResource("1_kyxg0")]
 position = Vector2(76, 243)
-friction = 0
 
 [node name="Tomato6" parent="." instance=ExtResource("1_kyxg0")]
 position = Vector2(168, 73)
-friction = 0
 
 [node name="Tomato7" parent="." instance=ExtResource("1_kyxg0")]
 position = Vector2(-217, -81)
-friction = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Top" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
 position = Vector2(0, -324)
 shape = SubResource("WorldBoundaryShape2D_kyxg0")
 
 [node name="Bottom" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
 position = Vector2(0, 324)
 shape = SubResource("WorldBoundaryShape2D_mc20k")
 
 [node name="Left" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
 position = Vector2(-576, 0)
 shape = SubResource("WorldBoundaryShape2D_cove1")
 
 [node name="Right" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
 position = Vector2(576, 0)

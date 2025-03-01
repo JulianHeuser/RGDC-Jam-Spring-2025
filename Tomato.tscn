@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bk64v7oudt0cm"]
 
 [ext_resource type="Texture2D" uid="uid://coa216wsruevs" path="res://tomato.png" id="1_6xurm"]
-[ext_resource type="Script" uid="uid://7p5umae4m8b0" path="res://tomatoAndDoughController.gd" id="1_xyqmk"]
+[ext_resource type="Script" uid="uid://7p5umae4m8b0" path="res://crushController.gd" id="1_xyqmk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
 bounce = 0.16
@@ -10,8 +10,13 @@ bounce = 0.16
 radius = 45.0444
 
 [node name="Tomato" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_xyqmk")
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
 linear_damp = 0.5
 script = ExtResource("1_xyqmk")
 
