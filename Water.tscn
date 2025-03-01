@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c48m5p5xfeswp"]
+
+[ext_resource type="Script" uid="uid://7p5umae4m8b0" path="res://crushController.gd" id="1_rrwdp"]
+[ext_resource type="Texture2D" uid="uid://cp0x27y1s0vla" path="res://Water.png" id="2_rrwdp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
+bounce = 0.16
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xt0xg"]
+radius = 34.0
+height = 98.0
+
+[node name="Water" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_xyqmk")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
+linear_damp = 0.5
+script = ExtResource("1_rrwdp")
+type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xt0xg")
+
+[node name="Water" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_rrwdp")

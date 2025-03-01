@@ -6,11 +6,22 @@ extends Node
 #}
 
 func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
-	var pasta_tmp: Node = null
-	if node1.type == 0 && node2.type == 0:
-		pasta_tmp = load("res://Pasta.tscn").instantiate()
+	var ret_val: Node = null
+	var a: int = node1.type
+	var b: int = node2.type
+	if a > b:
+		var tmp: int = b
+		b = a
+		a = tmp
+	if a == 0 and b == 0:
+		ret_val = load("res://dough.tscn").instantiate()
+	elif a == 1 and b == 3:
+		ret_val = load("res://Pasta.tscn").instantiate()
+		
+	if ret_val != null:
+		ret_val.position = (node1.position + node2.position)/2
 	
-	return pasta_tmp
+	return ret_val
 
 func crush_event(node1: Crushable, node2: Crushable) -> void:
 	if node1 != null and node2 != null:
