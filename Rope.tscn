@@ -9,6 +9,7 @@
 script = ExtResource("1_ns3r3")
 end_point1 = NodePath("Endpoint1")
 end_point2 = NodePath("Endpoint2")
+move_speed = 50
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.795, 1.795)
@@ -23,7 +24,7 @@ scale = Vector2(0.23, 0.23)
 texture = ExtResource("2_ns3r3")
 
 [node name="Endpoint2" type="StaticBody2D" parent="."]
-position = Vector2(323, 0)
+position = Vector2(0, 240)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoint2"]
 shape = SubResource("RectangleShape2D_1dgmm")

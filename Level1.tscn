@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsoc7yqw2jmqh"]
 
 [ext_resource type="PackedScene" uid="uid://bk64v7oudt0cm" path="res://Tomato.tscn" id="1_kyxg0"]
-[ext_resource type="Script" uid="uid://coc6yeel62a5f" path="res://level_1_tst.gd" id="1_mc20k"]
+[ext_resource type="Script" path="res://level_1_tst.gd" id="1_mc20k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kyxg0"]
 normal = Vector2(0, 1)
