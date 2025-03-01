@@ -7,7 +7,7 @@ var previous_velocity = Vector3 (0,0,0)
 
 var frames_crushed: float = 0
 
-signal crushEvent(node1, node2)
+signal crush_event(node1, node2)
 
 var crush_obj
 
@@ -54,3 +54,4 @@ func _integrate_forces(state : PhysicsDirectBodyState2D):
 	if frames_crushed > crush_frames:
 		print("crush event", crush_factor)
 		print(crush_obj)
+		crush_event
