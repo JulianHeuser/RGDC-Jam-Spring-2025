@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var crush_threshold: float = 500
+@export var crush_threshold: float = 70
 @export var crush_frames: int = 30 # number of frames to be crushed for before triggering a crush event
 
 var frames_crushed: float = 0
@@ -31,10 +31,10 @@ func _integrate_forces(state : PhysicsDirectBodyState2D) -> void:
 		if (is_instance_valid(object_hit)): # To fix a case where an object hits the player as player is deleted during level transition (intermission)
 			var imp := state.get_contact_impulse(contact_index)
 			var collide_obj := state.get_contact_collider_object(contact_index)
+			
 			if collide_obj.has_method("crushable"):
 				crush_obj = collide_obj
-			
-			crush_factor += imp.length()
+				crush_factor += imp.length()
 			
 	if crush_factor > crush_threshold:
 		if frames_crushed < crush_frames:
@@ -43,6 +43,7 @@ func _integrate_forces(state : PhysicsDirectBodyState2D) -> void:
 		if frames_crushed > 1:
 			frames_crushed -= 0.1
 		
+	#print(crush_factor)
 		
 	if frames_crushed > crush_frames:
 		crush_event.emit(self, crush_obj)
