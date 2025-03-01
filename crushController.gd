@@ -7,6 +7,9 @@ var previous_velocity = Vector3 (0,0,0)
 
 var frames_crushed: float = 0
 
+signal crushEvent(node1, node2)
+
+var crush_obj
 
 func _init() -> void:
 	pass
@@ -34,6 +37,9 @@ func _integrate_forces(state : PhysicsDirectBodyState2D):
 		var object_hit := state.get_contact_collider_object(contact_index)
 		if (is_instance_valid(object_hit)): # To fix a case where an object hits the player as player is deleted during level transition (intermission)
 			var imp := state.get_contact_impulse(contact_index)
+			var collide_obj := state.get_contact_collider_object(contact_index)
+			if collide_obj.to_string().contains("Tomato"):
+				crush_obj = collide_obj
 			
 			imp_sum += imp
 			crush_factor += imp.length()
@@ -47,11 +53,4 @@ func _integrate_forces(state : PhysicsDirectBodyState2D):
 		
 	if frames_crushed > crush_frames:
 		print("crush event", crush_factor)
-
-# And in my physics Autoload:
-#static func handle_rigid_body_collision(object : PhysicsProp, object_hit : Node3D, position : Vector3, velocity : Vector3, impulse : Vector3):
-	## TODO: Sometimes impulse is 0, 0, 0, even though there is a solid impact.  Jolt bug?
-	#if (impulse.length_squared() > MIN_IMPULSE_RESPONSE_SQUARED):
-		#Combat.handle_rigid_body_hit(object, object_hit, velocity, impulse)
-		#var speed_change := impulse.length() / object.mass
-		#SoundSystem.play_physics_impact_sound(object, position, speed_change)
+		print(crush_obj)
