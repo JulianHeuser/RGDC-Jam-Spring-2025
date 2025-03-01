@@ -63,38 +63,24 @@ shape = SubResource("WorldBoundaryShape2D_kyxg0")
 
 [node name="Tomato" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
 position = Vector2(359, 10)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Tomato2" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
 position = Vector2(63, -87)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Tomato3" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
 position = Vector2(-36, 26)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Tomato4" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
 position = Vector2(247, -131)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Tomato5" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
 position = Vector2(76, 243)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Tomato6" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
 position = Vector2(168, 73)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Tomato7" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
 position = Vector2(-217, -81)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Dough" type="Node2D" parent="."]
 
@@ -123,25 +109,15 @@ position = Vector2(-393, -147)
 
 [node name="Pasta" parent="Pasta" instance=ExtResource("5_dn5ey")]
 position = Vector2(-269, 74)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Pasta2" parent="Pasta" instance=ExtResource("5_dn5ey")]
 position = Vector2(56, 134)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Pasta3" parent="Pasta" instance=ExtResource("5_dn5ey")]
 position = Vector2(379, -207)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Pasta4" parent="Pasta" instance=ExtResource("5_dn5ey")]
 position = Vector2(-97, 163)
-crush_threshold = 500.0
-crush_frames = 30
 
 [node name="Pasta5" parent="Pasta" instance=ExtResource("5_dn5ey")]
 position = Vector2(-102, -120)
-crush_threshold = 500.0
-crush_frames = 30
