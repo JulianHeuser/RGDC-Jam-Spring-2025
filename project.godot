@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="RGDC Spring Jam"
-run/main_scene="res://Rope.tscn"
+run/main_scene="uid://dsoc7yqw2jmqh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 
