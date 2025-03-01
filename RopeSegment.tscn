@@ -1,18 +1,20 @@
 [gd_scene load_steps=2 format=3 uid="uid://tglalvxhuc0n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mf4mk"]
-radius = 5.0
-height = 80.0
+radius = 3.0
+height = 20.0
 
 [node name="RopeSegment" type="RigidBody2D"]
 collision_mask = 0
 gravity_scale = 0.0
+linear_damp_mode = 1
+linear_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 40)
+position = Vector2(0, 10)
 shape = SubResource("CapsuleShape2D_mf4mk")
 
 [node name="Line2D" type="Line2D" parent="CollisionShape2D"]
-points = PackedVector2Array(0, 40, 0, -40)
-width = 5.0
+points = PackedVector2Array(0, -10, 0, 10)
+width = 3.0
 default_color = Color(0.854228, 0.77239, 0, 1)

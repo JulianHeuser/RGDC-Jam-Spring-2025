@@ -3,18 +3,18 @@ extends Node2D
 @export var end_point1 : StaticBody2D
 @export var end_point2 : StaticBody2D
 
-@export var segment_count : int = 5
+@export var segment_count : int = 10
 
-@export var move_speed : int = 0
+@export var move_speed : int = 50
 
-const segment_size = 80
+@export var segment_size : int = 20
 
 func _ready() -> void:
 	end_point2.position = Vector2(0, segment_size * segment_count)
+	#$DampedSpringJoint2D.length = segment_size * segment_count
 	
 	var current_pin := PinJoint2D.new()
-	var last_pin : PinJoint2D = null
-	end_point1.add_child(current_pin)
+	add_child(current_pin)
 	current_pin.node_a = end_point1.get_path()
 	
 	# Create rope segments
@@ -23,7 +23,6 @@ func _ready() -> void:
 		
 		current_pin.add_child(rope)
 		current_pin.node_b = rope.get_path()
-		last_pin = current_pin
 		
 		current_pin = PinJoint2D.new()
 		rope.add_child(current_pin)
@@ -36,18 +35,28 @@ func _physics_process(delta: float) -> void:
 	var endpoint1_movement : Vector2 = Vector2(
 		Input.get_axis("move_left_1", "move_right_1"),
 		Input.get_axis("move_up_1", "move_down_1")
-	)
+	) * delta * move_speed
 	
 	var endpoint2_movement : Vector2 = Vector2(
 		Input.get_axis("move_left_2", "move_right_2"),
 		Input.get_axis("move_up_2", "move_down_2")
-	)
+	) * delta * move_speed
+	
+	if (end_point1.position + endpoint1_movement).distance_to(end_point2.position + endpoint2_movement) > segment_size * segment_count:
+		var diff := (end_point1.position - end_point2.position).normalized()
+		var rotated := endpoint1_movement.rotated(-atan2(diff.y, diff.x))
+		rotated.x = 0
+		endpoint1_movement = rotated.rotated(atan2(diff.y, diff.x))
+		
+		rotated = endpoint2_movement.rotated(-atan2(-diff.y, -diff.x))
+		rotated.x = 0
+		endpoint2_movement = rotated.rotated(atan2(-diff.y, -diff.x))
 	
 	if (endpoint1_movement.length() > 0):
-		end_point1.move_and_collide(endpoint1_movement * delta * move_speed)
+		end_point1.move_and_collide(endpoint1_movement)
 	
 	if (endpoint2_movement.length() > 0):
-		end_point2.move_and_collide(endpoint2_movement * delta * move_speed)
+		end_point2.move_and_collide(endpoint2_movement)
 
 	
 	
