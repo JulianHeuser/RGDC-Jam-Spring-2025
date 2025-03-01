@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp6pldtn0wbfi"]
 
-[ext_resource type="Script" path="res://tomatoController.gd" id="1_2xg5y"]
+[ext_resource type="Script" path="res://crushController.gd" id="1_2xg5y"]
 [ext_resource type="Texture2D" uid="uid://e5gitdn5qdm0" path="res://dough.png" id="1_ubkwv"]
 
 [node name="Dough" type="RigidBody2D"]
