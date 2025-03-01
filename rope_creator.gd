@@ -9,11 +9,15 @@ extends Node2D
 
 @export var segment_size : int = 20
 
+@export var spring_length : int = 2
+
 func _ready() -> void:
-	end_point2.position = Vector2(0, segment_size * segment_count)
-	#$DampedSpringJoint2D.length = segment_size * segment_count
+	end_point2.position = Vector2(segment_size * segment_count, 0)
 	
-	var current_pin := PinJoint2D.new()
+	var current_pin : Joint2D = DampedSpringJoint2D.new()
+	current_pin.length = spring_length
+	current_pin.stiffness = 50.0
+	current_pin.damping = 0.5
 	add_child(current_pin)
 	current_pin.node_a = end_point1.get_path()
 	
@@ -24,10 +28,16 @@ func _ready() -> void:
 		current_pin.add_child(rope)
 		current_pin.node_b = rope.get_path()
 		
-		current_pin = PinJoint2D.new()
+		if i == segment_count - 1:
+			current_pin = DampedSpringJoint2D.new()
+			current_pin.length = spring_length
+			current_pin.stiffness = 50.0
+			current_pin.damping = 0.5
+		else:
+			current_pin = PinJoint2D.new()
 		rope.add_child(current_pin)
 		current_pin.node_a = rope.get_path()
-		current_pin.position = Vector2(0, segment_size)
+		current_pin.position = Vector2(segment_size, 0)
 		
 	current_pin.node_b = end_point2.get_path()
 

@@ -1,8 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl88cq8mwj0cx"]
+[gd_scene load_steps=5 format=3 uid="uid://bl88cq8mwj0cx"]
 
 [ext_resource type="Script" uid="uid://de18xiqgix6c6" path="res://rope_creator.gd" id="1_ns3r3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dgmm"]
+
+[sub_resource type="Gradient" id="Gradient_1dgmm"]
+interpolation_mode = 1
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ns3r3"]
+gradient = SubResource("Gradient_1dgmm")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Rope" type="Node2D" node_paths=PackedStringArray("end_point1", "end_point2")]
 script = ExtResource("1_ns3r3")
@@ -11,19 +23,21 @@ end_point2 = NodePath("Endpoint2")
 
 [node name="Endpoint1" type="StaticBody2D" parent="."]
 collision_layer = 0
-collision_mask = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoint1"]
 shape = SubResource("RectangleShape2D_1dgmm")
 
+[node name="Sprite2D" type="Sprite2D" parent="Endpoint1"]
+texture = SubResource("GradientTexture2D_ns3r3")
+
 [node name="Endpoint2" type="StaticBody2D" parent="."]
 position = Vector2(0, 240)
 collision_layer = 0
-collision_mask = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Endpoint2"]
 shape = SubResource("RectangleShape2D_1dgmm")
 
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
-node_a = NodePath("../Endpoint1")
-node_b = NodePath("../Endpoint2")
+[node name="Sprite2D" type="Sprite2D" parent="Endpoint2"]
+texture = SubResource("GradientTexture2D_ns3r3")

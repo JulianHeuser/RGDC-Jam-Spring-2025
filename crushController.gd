@@ -9,19 +9,8 @@ signal crush_event(node1: Node, node2: Node)
 
 var crush_obj: Node
 
-func _init() -> void:
-	pass
-	
 func _ready() -> void:
-	linear_velocity = Vector2(900, 100)
 	crush_event.connect(CrushMgr.crush_event)
-
-	
-func _process(delta: float) -> void:
-	pass
-	
-func _physics_process(delta):
-	pass
 
 # On the rigid body:
 func _integrate_forces(state : PhysicsDirectBodyState2D):
