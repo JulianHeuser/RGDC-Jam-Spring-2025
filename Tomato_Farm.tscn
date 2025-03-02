@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7la1kuaaq36q"]
+
+[ext_resource type="Script" uid="uid://bamuqfgtfwlfa" path="res://Factory.gd" id="1_gavu8"]
+[ext_resource type="PackedScene" uid="uid://bk64v7oudt0cm" path="res://Crushables/Tomato.tscn" id="2_gavu8"]
+[ext_resource type="Texture2D" uid="uid://1xcrhjib46p2" path="res://Tomato_Farm.png" id="3_kosi7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
+bounce = 0.16
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhjvs"]
+size = Vector2(119, 121)
+
+[node name="Tomato_Farm" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_xyqmk")
+script = ExtResource("1_gavu8")
+spawnable = ExtResource("2_gavu8")
+spawn_bigness = 0.4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_hhjvs")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_kosi7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true

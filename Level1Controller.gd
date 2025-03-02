@@ -2,6 +2,11 @@ extends Node2D
 
 @export var spawn_to_replenish : Array[PackedScene]
 
+@export var level : int = 1
+
+func _ready() -> void:
+	CrushMgr.set_level(level)
+
 func made_spaghetti() -> void:
 	_spawn_ingredients()
 	

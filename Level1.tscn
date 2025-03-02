@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://xqdghv3thvri" path="res://Wood Texture.png" id="1_lmyl5"]
 [ext_resource type="Script" path="res://Level1Controller.gd" id="1_mlbie"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="2_cove1"]
-[ext_resource type="PackedScene" uid="uid://dbb1drg3dglnr" path="res://dough.tscn" id="3_cove1"]
+[ext_resource type="PackedScene" uid="uid://dbb1drg3dglnr" path="res://Crushables/Dough.tscn" id="3_cove1"]
 [ext_resource type="PackedScene" uid="uid://c48m5p5xfeswp" path="res://Crushables/Water.tscn" id="5_lmyl5"]
 [ext_resource type="PackedScene" uid="uid://d3ebcpckytqtm" path="res://RecipeBook.tscn" id="5_mlbie"]
 

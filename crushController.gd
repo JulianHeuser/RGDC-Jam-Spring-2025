@@ -12,6 +12,7 @@ enum CrushableType {
 	WHITE_PLANET,
 	RED_PLANET,
 	STAR,
+	BLACK_HOLE
 }
 
 @export var crush_threshold: float = 70
@@ -19,12 +20,7 @@ enum CrushableType {
 
 @export var bigness: float = 1
 
-# what type of crushable object is this?
-# 0: tomato
-# 1: dough
-# 2: pasta
-# 3: water
-# 4: spaghetti!
+## what type of crushable object is this?
 @export var type: CrushableType = CrushableType.TOMATO
 
 var frames_crushed: float = 0
@@ -39,10 +35,13 @@ func _ready() -> void:
 	crush_event.connect(CrushMgr.crush_event)
 	$CollisionShape2D.shape = $CollisionShape2D.shape.duplicate()
 	
-func _process(delta: float) -> void:
+	# random velocity at spawn
+	linear_velocity = Vector2.from_angle(randf()*2.0*PI) * 100.0
+	
+func _process(_delta: float) -> void:
 	$Sprite.modulate.r = 1 + 2 * frames_crushed/(float(crush_frames))
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	scale = Vector2(1, 1) * bigness
 	$CollisionShape2D.shape.set_radius(50 * bigness)
 	

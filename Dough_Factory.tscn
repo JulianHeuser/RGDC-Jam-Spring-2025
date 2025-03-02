@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://r0g16tlbrkpf"]
+[gd_scene load_steps=6 format=3 uid="uid://r0g16tlbrkpf"]
 
-[ext_resource type="Script" uid="uid://bamuqfgtfwlfa" path="res://CrushableSpawner.gd" id="1_k2t7a"]
+[ext_resource type="Script" uid="uid://bamuqfgtfwlfa" path="res://Factory.gd" id="1_k2t7a"]
+[ext_resource type="PackedScene" uid="uid://dbb1drg3dglnr" path="res://Crushables/Dough.tscn" id="2_hhjvs"]
 [ext_resource type="Texture2D" uid="uid://bgq18036t8kav" path="res://Dough_Factory.png" id="2_pmae4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
@@ -10,10 +11,12 @@ bounce = 0.16
 size = Vector2(114, 121)
 
 [node name="Dough_Factory" type="StaticBody2D"]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 4
+collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_xyqmk")
 script = ExtResource("1_k2t7a")
+spawnable = ExtResource("2_hhjvs")
+spawn_bigness = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -0.5)
