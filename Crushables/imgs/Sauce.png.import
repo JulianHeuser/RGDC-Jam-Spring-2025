@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e5gitdn5qdm0"
-path="res://.godot/imported/dough.png-7aee42c6011d7fea3380da22cb1e245d.ctex"
+uid="uid://d2ndwj7t1blky"
+path="res://.godot/imported/Sauce.png-12d94593b74b8c46fb95664d5f5c5e24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dough.png"
-dest_files=["res://.godot/imported/dough.png-7aee42c6011d7fea3380da22cb1e245d.ctex"]
+source_file="res://Crushables/imgs/Sauce.png"
+dest_files=["res://.godot/imported/Sauce.png-12d94593b74b8c46fb95664d5f5c5e24.ctex"]
 
 [params]
 

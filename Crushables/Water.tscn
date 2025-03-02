@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c48m5p5xfeswp"]
 
 [ext_resource type="Script" uid="uid://7p5umae4m8b0" path="res://crushController.gd" id="1_rrwdp"]
-[ext_resource type="Texture2D" uid="uid://cp0x27y1s0vla" path="res://Water.png" id="2_rrwdp"]
+[ext_resource type="Texture2D" uid="uid://cp0x27y1s0vla" path="res://Crushables/imgs/Water.png" id="2_rrwdp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
 bounce = 0.16

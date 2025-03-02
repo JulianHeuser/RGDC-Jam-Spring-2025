@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dekyxtdqey575"
-path="res://.godot/imported/Spaghetti.png-9d2c9f4558e2b87296012ef671eaa73f.ctex"
+uid="uid://coa216wsruevs"
+path="res://.godot/imported/tomato.png-4c9e912d616d5c8ab9871625d9941407.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spaghetti.png"
-dest_files=["res://.godot/imported/Spaghetti.png-9d2c9f4558e2b87296012ef671eaa73f.ctex"]
+source_file="res://Crushables/imgs/tomato.png"
+dest_files=["res://.godot/imported/tomato.png-4c9e912d616d5c8ab9871625d9941407.ctex"]
 
 [params]
 

@@ -18,13 +18,13 @@ func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 		a = tmp
 		
 	if a == 0 and b == 0:
-		ret_val = load("res://Sauce.tscn").instantiate()
+		ret_val = load("res://Crushables/Sauce.tscn").instantiate()
 	elif a == 1 and b == 3:
-		ret_val = load("res://Pasta.tscn").instantiate()
+		ret_val = load("res://Crushables/Pasta.tscn").instantiate()
 	elif a == 2 and b == 5:
-		ret_val = load("res://Spaghetti.tscn").instantiate()
+		ret_val = load("res://Crushables/Spaghetti.tscn").instantiate()
 	elif a == 4 and b == 4:
-		ret_val = load("res://Spaghetti.tscn").instantiate()
+		ret_val = load("res://Crushables/Spaghetti.tscn").instantiate()
 		ret_val.mass = node1.mass + node2.mass
 		ret_val.bigness = node1.bigness + node2.bigness
 		

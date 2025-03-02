@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccg0w874pqnll"
-path="res://.godot/imported/Pasta.png-618f37ffe7c111424a779b5b5c36cecb.ctex"
+uid="uid://pgjkvmdte5nt"
+path="res://.godot/imported/Red_Planet.png-f950616ab284c51e139be20bd7b34bb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pasta.png"
-dest_files=["res://.godot/imported/Pasta.png-618f37ffe7c111424a779b5b5c36cecb.ctex"]
+source_file="res://Crushables/imgs/Red_Planet.png"
+dest_files=["res://.godot/imported/Red_Planet.png-f950616ab284c51e139be20bd7b34bb8.ctex"]
 
 [params]
 
