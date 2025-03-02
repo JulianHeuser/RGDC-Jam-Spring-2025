@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ld2ue5lo0rqk"]
+
+[ext_resource type="Script" uid="uid://bamuqfgtfwlfa" path="res://Factory.gd" id="1_4lytn"]
+[ext_resource type="PackedScene" uid="uid://c48m5p5xfeswp" path="res://Crushables/Water.tscn" id="2_4lytn"]
+[ext_resource type="Texture2D" uid="uid://dxixdmk4d17rw" path="res://Lake.png" id="3_6vurb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
+bounce = 0.16
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2q8ea"]
+radius = 49.5022
+height = 136.544
+
+[node name="Lake" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_xyqmk")
+script = ExtResource("1_4lytn")
+spawnable = ExtResource("2_4lytn")
+spawn_bigness = 0.4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -0.5)
+rotation = 0.958186
+shape = SubResource("CapsuleShape2D_2q8ea")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_6vurb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
