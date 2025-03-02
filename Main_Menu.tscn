@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://icf0nyb18ui8"]
 
-[ext_resource type="Texture2D" uid="uid://dekyxtdqey575" path="res://Spaghetti.png" id="1_wugcc"]
+[ext_resource type="Texture2D" uid="uid://dekyxtdqey575" path="res://Crushables/imgs/Spaghetti.png" id="1_wugcc"]
 [ext_resource type="FontFile" uid="uid://bcb6rbfthaxw3" path="res://ComicNeue-Bold.ttf" id="2_gtid3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnfjo"]
