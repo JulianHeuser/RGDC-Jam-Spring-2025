@@ -35,6 +35,9 @@ func _ready() -> void:
 	crush_event.connect(CrushMgr.crush_event)
 	$CollisionShape2D.shape = $CollisionShape2D.shape.duplicate()
 	
+	# random velocity at spawn
+	linear_velocity = Vector2.from_angle(randf()*2.0*PI) * 100.0
+	
 func _process(_delta: float) -> void:
 	$Sprite.modulate.r = 1 + 2 * frames_crushed/(float(crush_frames))
 	
