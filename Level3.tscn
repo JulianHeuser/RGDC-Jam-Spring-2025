@@ -1,18 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7d6ab4had4q5"]
+[gd_scene load_steps=12 format=3 uid="uid://b7d6ab4had4q5"]
 
 [ext_resource type="Script" uid="uid://b17145dx4bar" path="res://Level1Controller.gd" id="1_545p4"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="3_nqeel"]
 [ext_resource type="PackedScene" uid="uid://lwhw51k1vg12" path="res://Crushables/Water_Planet.tscn" id="3_qlmxs"]
 [ext_resource type="PackedScene" uid="uid://ctu6qx5mrapl6" path="res://Crushables/White_Planet.tscn" id="4_545p4"]
+[ext_resource type="Texture2D" uid="uid://cftibwsnva4ku" path="res://Level3Bkg.png" id="4_h8oof"]
 [ext_resource type="PackedScene" uid="uid://dxnclpo48y4pl" path="res://Crushables/Red_Planet.tscn" id="5_qlmxs"]
 [ext_resource type="PackedScene" uid="uid://dk4y8ew5b2whp" path="res://space_recipe_book'.tscn" id="6_545p4"]
-
-[sub_resource type="Gradient" id="Gradient_qlmxs"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_545p4"]
-gradient = SubResource("Gradient_qlmxs")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mc20k"]
 
@@ -32,10 +26,8 @@ level = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-6.38809, -5.63683)
-rotation = 1.5708
-scale = Vector2(10.1554, 18.1526)
-texture = SubResource("GradientTexture2D_545p4")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_h8oof")
 
 [node name="Rope" parent="." instance=ExtResource("3_nqeel")]
 segment_count = 40

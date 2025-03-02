@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://cwjbdoaqrr6yc"]
 
-[ext_resource type="Script" path="res://Level2Controller.gd" id="1_ex07k"]
+[ext_resource type="Script" uid="uid://cu8vi5b8mc0xc" path="res://Level2Controller.gd" id="1_ex07k"]
 [ext_resource type="PackedScene" uid="uid://d3ebcpckytqtm" path="res://RecipeBook.tscn" id="2_6faey"]
-[ext_resource type="Texture2D" uid="uid://dwkpxshcwef2q" path="res://playmat.jpg" id="2_s8dg4"]
+[ext_resource type="Texture2D" uid="uid://g1qce10s7fat" path="res://Level2Bkg.png" id="3_6faey"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="3_nc7oo"]
 [ext_resource type="PackedScene" uid="uid://r0g16tlbrkpf" path="res://Dough_Factory.tscn" id="4_ex07k"]
 [ext_resource type="PackedScene" uid="uid://ld2ue5lo0rqk" path="res://Lake.tscn" id="5_wwdpc"]
@@ -36,8 +36,8 @@ offset_right = 1118.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(-0.499969, -1)
-scale = Vector2(1.29195, 1.09612)
-texture = ExtResource("2_s8dg4")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_6faey")
 
 [node name="Rope" parent="." instance=ExtResource("3_nc7oo")]
 segment_count = 20
@@ -79,18 +79,15 @@ position = Vector2(0, -324)
 shape = SubResource("WorldBoundaryShape2D_kyxg0")
 
 [node name="Dough_Factory" parent="." instance=ExtResource("4_ex07k")]
-position = Vector2(342, -153)
+position = Vector2(-249, 126)
 
 [node name="Lake" parent="." instance=ExtResource("5_wwdpc")]
-position = Vector2(353, 189)
+position = Vector2(-262, -167)
 
 [node name="Tomato_Farm" parent="." instance=ExtResource("6_6faey")]
-position = Vector2(-233, -221)
-
-[node name="Tomato_Farm2" parent="." instance=ExtResource("6_6faey")]
-position = Vector2(-389, -29)
+position = Vector2(277, 191)
 
 [node name="Tomato_Farm3" parent="." instance=ExtResource("6_6faey")]
-position = Vector2(-165, -18)
+position = Vector2(79, 158)
 
 [editable path="RecipeBook"]
