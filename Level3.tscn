@@ -1,11 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7d6ab4had4q5"]
+[gd_scene load_steps=12 format=3 uid="uid://b7d6ab4had4q5"]
 
 [ext_resource type="Script" uid="uid://b17145dx4bar" path="res://Level1Controller.gd" id="1_545p4"]
-[ext_resource type="Texture2D" uid="uid://xqdghv3thvri" path="res://Wood Texture.png" id="2_h8oof"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="3_nqeel"]
-[ext_resource type="PackedScene" uid="uid://bk64v7oudt0cm" path="res://Crushables/Tomato.tscn" id="4_u5lf4"]
-[ext_resource type="PackedScene" uid="uid://dbb1drg3dglnr" path="res://Crushables/Dough.tscn" id="5_7swbh"]
-[ext_resource type="PackedScene" uid="uid://c48m5p5xfeswp" path="res://Crushables/Water.tscn" id="6_ewulq"]
+[ext_resource type="PackedScene" uid="uid://lwhw51k1vg12" path="res://Crushables/Water_Planet.tscn" id="3_qlmxs"]
+[ext_resource type="PackedScene" uid="uid://ctu6qx5mrapl6" path="res://Crushables/White_Planet.tscn" id="4_545p4"]
+[ext_resource type="PackedScene" uid="uid://dxnclpo48y4pl" path="res://Crushables/Red_Planet.tscn" id="5_qlmxs"]
+
+[sub_resource type="Gradient" id="Gradient_qlmxs"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_545p4"]
+gradient = SubResource("Gradient_qlmxs")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mc20k"]
 
@@ -18,15 +24,16 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kyxg0"]
 normal = Vector2(0, 1)
 
-[node name="Level1" type="Node2D"]
+[node name="Level3" type="Node2D"]
 script = ExtResource("1_545p4")
+level = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-0.751301, -2.67029e-05)
+position = Vector2(-6.38809, -5.63683)
 rotation = 1.5708
-scale = Vector2(0.316277, 0.562803)
-texture = ExtResource("2_h8oof")
+scale = Vector2(10.1554, 18.1526)
+texture = SubResource("GradientTexture2D_545p4")
 
 [node name="Rope" parent="." instance=ExtResource("3_nqeel")]
 segment_count = 20
@@ -67,63 +74,39 @@ collision_mask = 3
 position = Vector2(0, -324)
 shape = SubResource("WorldBoundaryShape2D_kyxg0")
 
-[node name="Tomatoes" type="Node2D" parent="."]
+[node name="Water Planets" type="Node2D" parent="."]
 
-[node name="Tomato" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
-position = Vector2(359, 10)
+[node name="Water_Planet" parent="Water Planets" instance=ExtResource("3_qlmxs")]
+position = Vector2(-21, -192)
 
-[node name="Tomato2" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
-position = Vector2(63, -87)
+[node name="Water_Planet2" parent="Water Planets" instance=ExtResource("3_qlmxs")]
+position = Vector2(-51, 176)
 
-[node name="Tomato3" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
-position = Vector2(-36, 26)
+[node name="Water_Planet3" parent="Water Planets" instance=ExtResource("3_qlmxs")]
+position = Vector2(-328, 122)
 
-[node name="Tomato4" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
-position = Vector2(247, -131)
+[node name="Water_Planet4" parent="Water Planets" instance=ExtResource("3_qlmxs")]
+position = Vector2(233, -215)
 
-[node name="Tomato5" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
-position = Vector2(76, 243)
+[node name="White Planets" type="Node2D" parent="."]
 
-[node name="Tomato6" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
-position = Vector2(168, 73)
+[node name="White_Planet" parent="White Planets" instance=ExtResource("4_545p4")]
+position = Vector2(-265, -145)
 
-[node name="Tomato7" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
-position = Vector2(-217, -81)
+[node name="White_Planet2" parent="White Planets" instance=ExtResource("4_545p4")]
+position = Vector2(158, 174)
 
-[node name="Dough" type="Node2D" parent="."]
+[node name="White_Planet3" parent="White Planets" instance=ExtResource("4_545p4")]
+position = Vector2(346, 160)
 
-[node name="Dough" parent="Dough" instance=ExtResource("5_7swbh")]
-position = Vector2(-356, 158)
+[node name="White_Planet4" parent="White Planets" instance=ExtResource("4_545p4")]
+position = Vector2(341, -92)
 
-[node name="Dough2" parent="Dough" instance=ExtResource("5_7swbh")]
-position = Vector2(101, -237)
+[node name="Red_Planet" parent="." instance=ExtResource("5_qlmxs")]
+position = Vector2(367, -201)
 
-[node name="Dough3" parent="Dough" instance=ExtResource("5_7swbh")]
-position = Vector2(365, 190)
+[node name="Red_Planet2" parent="." instance=ExtResource("5_qlmxs")]
+position = Vector2(478, 34)
 
-[node name="Dough4" parent="Dough" instance=ExtResource("5_7swbh")]
-position = Vector2(249, -17)
-
-[node name="Dough5" parent="Dough" instance=ExtResource("5_7swbh")]
-position = Vector2(-117, 6)
-
-[node name="Dough6" parent="Dough" instance=ExtResource("5_7swbh")]
-position = Vector2(-90, -235)
-
-[node name="Dough7" parent="Dough" instance=ExtResource("5_7swbh")]
-position = Vector2(-393, -147)
-
-[node name="Water1" parent="." instance=ExtResource("6_ewulq")]
-position = Vector2(-327, -17)
-
-[node name="Water2" parent="." instance=ExtResource("6_ewulq")]
-position = Vector2(-419, -61)
-
-[node name="Water3" parent="." instance=ExtResource("6_ewulq")]
-position = Vector2(-457, 167)
-
-[node name="Water4" parent="." instance=ExtResource("6_ewulq")]
-position = Vector2(-497, -77)
-
-[node name="Water5" parent="." instance=ExtResource("6_ewulq")]
-position = Vector2(-397, 44)
+[node name="Red_Planet3" parent="." instance=ExtResource("5_qlmxs")]
+position = Vector2(-425, -150)
