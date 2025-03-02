@@ -78,12 +78,11 @@ func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 			ret_val = load("res://Crushables/Pasta.tscn").instantiate().duplicate()
 		if a == Crushable.CrushableType.PASTA and b == Crushable.CrushableType.SAUCE:
 			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate().duplicate()
-		elif a == Crushable.CrushableType.SPAGHETTI and b == Crushable.CrushableType.SPAGHETTI:
-			if node1.bigness >= 4 or node2.bigness >= 2:
-				ret_val = load("res://Crushables/Black_Hole.tscn").instantiate().duplicate()
-			else: 
+		elif a == Crushable.CrushableType.SPAGHETTI and b == Crushable.CrushableType.SPAGHETTI: 
 				ret_val = load("res://Crushables/Star.tscn").instantiate().duplicate()
-		
+		elif a == Crushable.CrushableType.STAR and b == Crushable.CrushableType.STAR:
+				ret_val = load("res://Crushables/Black_Hole.tscn").instantiate().duplicate()
+				
 	if ret_val != null:
 		ret_val.position = (node1.position + node2.position)/2
 	

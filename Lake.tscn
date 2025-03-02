@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bamuqfgtfwlfa" path="res://Factory.gd" id="1_4lytn"]
 [ext_resource type="PackedScene" uid="uid://c48m5p5xfeswp" path="res://Crushables/Water.tscn" id="2_4lytn"]
-[ext_resource type="Texture2D" uid="uid://dxixdmk4d17rw" path="res://Lake.png" id="3_6vurb"]
+[ext_resource type="Texture2D" uid="uid://mj5bg78yh7o1" path="res://Lake.png" id="3_6vurb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
 bounce = 0.16
