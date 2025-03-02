@@ -1,0 +1,134 @@
+[gd_scene load_steps=10 format=3 uid="uid://wg5b7g7d1l3b"]
+
+[ext_resource type="Texture2D" uid="uid://dekyxtdqey575" path="res://Crushables/imgs/Spaghetti.png" id="1_0eiwq"]
+[ext_resource type="FontFile" uid="uid://bcb6rbfthaxw3" path="res://ComicNeue-Bold.ttf" id="2_cx6km"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6l1fx"]
+texture = ExtResource("1_0eiwq")
+modulate_color = Color(0.625597, 0.625597, 0.625597, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddy7k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bc332"]
+bg_color = Color(0.779291, 0.779291, 0.779291, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.145)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bf54k"]
+bg_color = Color(0.466181, 0.466181, 0.466181, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.145)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujsyp"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.145)
+
+[sub_resource type="GDScript" id="GDScript_vr2rx"]
+script/source = "extends Button
+
+func _ready() -> void:
+	pressed.connect(CrushMgr.next_level)
+"
+
+[sub_resource type="GDScript" id="GDScript_urab4"]
+script/source = "extends Button
+
+func _ready() -> void:
+	pressed.connect(get_tree().quit)
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6l1fx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -465.0
+offset_right = 465.0
+offset_bottom = 166.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_cx6km")
+theme_override_font_sizes/font_size = 71
+text = "You became the ultimate spaghetti!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -168.5
+offset_right = 156.0
+offset_bottom = 168.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 135
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ddy7k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bc332")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bf54k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ujsyp")
+text = "Play Again"
+script = SubResource("GDScript_vr2rx")
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ddy7k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bc332")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bf54k")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ujsyp")
+text = "Exit"
+script = SubResource("GDScript_urab4")

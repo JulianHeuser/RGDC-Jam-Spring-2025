@@ -30,7 +30,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 2.215)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kffn4"]
-bg_color = Color(0.733333, 0.45098, 0.0823529, 0.54902)
+bg_color = Color(0.733333, 0.45098, 0.0823529, 0.666667)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -82,10 +82,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -134.0
-offset_top = 2.0
-offset_right = -4.0
-offset_bottom = 37.0
+offset_left = -164.0
+offset_top = 12.0
+offset_right = -34.0
+offset_bottom = 47.0
 grow_horizontal = 0
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 0.54902)

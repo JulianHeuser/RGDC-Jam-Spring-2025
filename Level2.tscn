@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwjbdoaqrr6yc"]
+[gd_scene load_steps=12 format=3 uid="uid://cwjbdoaqrr6yc"]
 
-[ext_resource type="Script" uid="uid://cu8vi5b8mc0xc" path="res://Level2Controller.gd" id="1_ex07k"]
+[ext_resource type="Script" path="res://Level2Controller.gd" id="1_ex07k"]
+[ext_resource type="PackedScene" uid="uid://d3ebcpckytqtm" path="res://RecipeBook.tscn" id="2_6faey"]
 [ext_resource type="Texture2D" uid="uid://dwkpxshcwef2q" path="res://playmat.jpg" id="2_s8dg4"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="3_nc7oo"]
 [ext_resource type="PackedScene" uid="uid://r0g16tlbrkpf" path="res://Dough_Factory.tscn" id="4_ex07k"]
@@ -21,6 +22,16 @@ normal = Vector2(0, 1)
 [node name="Level2" type="Node2D" node_paths=PackedStringArray("factories")]
 script = ExtResource("1_ex07k")
 factories = [NodePath("Dough_Factory")]
+
+[node name="RecipeBook" parent="." instance=ExtResource("2_6faey")]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+
+[node name="RecipeBut" parent="RecipeBook" index="0"]
+offset_left = 988.0
+offset_right = 1118.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
@@ -81,3 +92,5 @@ position = Vector2(-389, -29)
 
 [node name="Tomato_Farm3" parent="." instance=ExtResource("6_6faey")]
 position = Vector2(-165, -18)
+
+[editable path="RecipeBook"]
