@@ -22,7 +22,6 @@ CrushMgr="*res://CrushManager.gd"
 [debug]
 
 gdscript/warnings/untyped_declaration=2
-gdscript/warnings/inferred_declaration=1
 
 [display]
 
@@ -30,7 +29,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-vim-main/godot-vim-main/addons/godot-vim/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

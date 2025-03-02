@@ -1,12 +1,18 @@
 class_name Crushable
 extends RigidBody2D
 
-#enum CrushableType:
-	#TOMATO
-	#DOUGH
-	#PASTA
-	#WATER
-	#SPAGHETTI
+enum CrushableType {
+	TOMATO,
+	DOUGH,
+	PASTA,
+	WATER,
+	SPAGHETTI,
+	SAUCE,
+	WATER_PLANET,
+	WHITE_PLANET,
+	RED_PLANET,
+	STAR,
+}
 
 @export var crush_threshold: float = 70
 @export var crush_frames: int = 30 # number of frames to be crushed for before triggering a crush event
@@ -19,7 +25,7 @@ extends RigidBody2D
 # 2: pasta
 # 3: water
 # 4: spaghetti!
-@export var type: int = -1
+@export var type: CrushableType = CrushableType.TOMATO
 
 var frames_crushed: float = 0
 
