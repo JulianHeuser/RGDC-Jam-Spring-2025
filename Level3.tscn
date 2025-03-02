@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7d6ab4had4q5"]
+[gd_scene load_steps=13 format=3 uid="uid://b7d6ab4had4q5"]
 
 [ext_resource type="Script" uid="uid://b17145dx4bar" path="res://Level1Controller.gd" id="1_545p4"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="3_nqeel"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cftibwsnva4ku" path="res://Level3Bkg.png" id="4_h8oof"]
 [ext_resource type="PackedScene" uid="uid://dxnclpo48y4pl" path="res://Crushables/Red_Planet.tscn" id="5_qlmxs"]
 [ext_resource type="PackedScene" uid="uid://dk4y8ew5b2whp" path="res://space_recipe_book'.tscn" id="6_545p4"]
+[ext_resource type="PackedScene" uid="uid://drxk006jn3t40" path="res://Crushables/Black_Hole.tscn" id="6_nqeel"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mc20k"]
 
@@ -67,6 +68,8 @@ collision_mask = 3
 [node name="WorldBoundaries_Top#CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Top0"]
 position = Vector2(0, -324)
 shape = SubResource("WorldBoundaryShape2D_kyxg0")
+
+[node name="Black_Hole" parent="." instance=ExtResource("6_nqeel")]
 
 [node name="Water Planets" type="Node2D" parent="."]
 

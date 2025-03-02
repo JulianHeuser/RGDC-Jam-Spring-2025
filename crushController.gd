@@ -43,6 +43,13 @@ func _ready() -> void:
 	linear_damp = drag_s
 	angular_damp = drag_s
 	
+	if type == CrushableType.BLACK_HOLE:
+		get_node("/root/Level3/WorldBoundaries").queue_free()
+		var tween := create_tween()
+		tween.tween_property(self, "bigness", 50, 10)
+		tween.parallel().tween_property($ColorRect, "color:a", 1.0, 10)
+		tween.tween_callback(CrushMgr.next_level)
+	
 func _process(_delta: float) -> void:
 	$Sprite.modulate.r = 1 + 2 * frames_crushed/(float(crush_frames))
 	

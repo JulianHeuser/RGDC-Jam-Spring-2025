@@ -42,7 +42,7 @@ contact_monitor = true
 max_contacts_reported = 3
 linear_damp = 0.5
 script = ExtResource("1_bq0l6")
-type = 9
+type = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xyqmk")
@@ -55,3 +55,12 @@ texture = SubResource("GradientTexture2D_bq0l6")
 visible = false
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_2aq7x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+top_level = true
+offset_left = -10006.0
+offset_top = -6263.0
+offset_right = 11188.0
+offset_bottom = 7984.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
