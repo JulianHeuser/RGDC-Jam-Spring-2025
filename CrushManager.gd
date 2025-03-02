@@ -48,30 +48,30 @@ func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 	
 	if level == 1 or level == 2:
 		if a == Crushable.CrushableType.TOMATO and b == Crushable.CrushableType.TOMATO:
-			ret_val = load("res://Crushables/Sauce.tscn").instantiate()
+			ret_val = load("res://Crushables/Sauce.tscn").instantiate().duplicate()
 			ret_val.bigness = (node1.bigness + node2.bigness)/2
 		elif a == Crushable.CrushableType.DOUGH and b == Crushable.CrushableType.WATER:
-			ret_val = load("res://Crushables/Pasta.tscn").instantiate()
+			ret_val = load("res://Crushables/Pasta.tscn").instantiate().duplicate()
 			ret_val.bigness = (node1.bigness + node2.bigness)/2
 		elif a == Crushable.CrushableType.PASTA and b == Crushable.CrushableType.SAUCE:
-			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate()
+			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate().duplicate()
 			ret_val.bigness = (node1.bigness + node2.bigness)/2
 		elif a == Crushable.CrushableType.SPAGHETTI and b == Crushable.CrushableType.SPAGHETTI:
-			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate()
+			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate().duplicate()
 			ret_val.mass = node1.mass + node2.mass
 			ret_val.bigness = node1.bigness + node2.bigness
 	elif level == 3:
 		if a == Crushable.CrushableType.RED_PLANET and b == Crushable.CrushableType.RED_PLANET:
-			ret_val = load("res://Crushables/Sauce.tscn").instantiate()
+			ret_val = load("res://Crushables/Sauce.tscn").instantiate().duplicate()
 		if a == Crushable.CrushableType.WATER_PLANET and b == Crushable.CrushableType.WHITE_PLANET:
-			ret_val = load("res://Crushables/Pasta.tscn").instantiate()
+			ret_val = load("res://Crushables/Pasta.tscn").instantiate().duplicate()
 		if a == Crushable.CrushableType.PASTA and b == Crushable.CrushableType.SAUCE:
-			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate()
+			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate().duplicate()
 		elif a == Crushable.CrushableType.SPAGHETTI and b == Crushable.CrushableType.SPAGHETTI:
 			if node1.bigness >= 4 or node2.bigness >= 4:
-				ret_val = load("res://Crushables/Black_Hole.tscn").instantiate()
+				ret_val = load("res://Crushables/Black_Hole.tscn").instantiate().duplicate()
 			else: 
-				ret_val = load("res://Crushables/Star.tscn").instantiate()
+				ret_val = load("res://Crushables/Star.tscn").instantiate().duplicate()
 		
 	if ret_val != null:
 		ret_val.position = (node1.position + node2.position)/2

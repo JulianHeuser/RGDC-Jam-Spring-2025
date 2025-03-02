@@ -68,13 +68,16 @@ position = Vector2(0, -324)
 shape = SubResource("WorldBoundaryShape2D_kyxg0")
 
 [node name="Dough_Factory" parent="." instance=ExtResource("4_ex07k")]
-position = Vector2(105, 13)
+position = Vector2(342, -153)
 
 [node name="Lake" parent="." instance=ExtResource("5_wwdpc")]
-position = Vector2(-357, 138)
+position = Vector2(353, 189)
 
 [node name="Tomato_Farm" parent="." instance=ExtResource("6_6faey")]
-position = Vector2(-183, -186)
+position = Vector2(-233, -221)
 
 [node name="Tomato_Farm2" parent="." instance=ExtResource("6_6faey")]
-position = Vector2(358, 134)
+position = Vector2(-389, -29)
+
+[node name="Tomato_Farm3" parent="." instance=ExtResource("6_6faey")]
+position = Vector2(-165, -18)
