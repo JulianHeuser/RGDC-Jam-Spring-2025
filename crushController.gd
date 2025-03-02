@@ -11,6 +11,8 @@ extends RigidBody2D
 @export var crush_threshold: float = 70
 @export var crush_frames: int = 30 # number of frames to be crushed for before triggering a crush event
 
+@export var bigness: float = 1
+
 # what type of crushable object is this?
 # 0: tomato
 # 1: dough
@@ -34,7 +36,8 @@ func _process(delta: float) -> void:
 	$Sprite.modulate.r = 1 + 2 * frames_crushed/(float(crush_frames))
 	
 func _physics_process(delta: float) -> void:
-	pass
+	scale = Vector2(1, 1) * bigness
+	$CollisionShape2D.shape.set_radius(50 * bigness)
 	
 # don't remove. I'm doing important work!
 func crushable() -> void:

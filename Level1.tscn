@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsoc7yqw2jmqh"]
+[gd_scene load_steps=10 format=3 uid="uid://dsoc7yqw2jmqh"]
 
 [ext_resource type="PackedScene" uid="uid://bk64v7oudt0cm" path="res://Tomato.tscn" id="1_kyxg0"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="2_cove1"]
 [ext_resource type="PackedScene" uid="uid://dbb1drg3dglnr" path="res://Dough.tscn" id="3_cove1"]
+[ext_resource type="PackedScene" uid="uid://cdgann5iilpgd" path="res://Spaghetti.tscn" id="5_dn5ey"]
 [ext_resource type="PackedScene" uid="uid://c48m5p5xfeswp" path="res://Water.tscn" id="5_lmyl5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mc20k"]
@@ -117,3 +118,9 @@ position = Vector2(-497, -77)
 
 [node name="Water5" parent="." instance=ExtResource("5_lmyl5")]
 position = Vector2(-397, 44)
+
+[node name="Spaghetti" parent="." instance=ExtResource("5_dn5ey")]
+position = Vector2(-136, 247)
+
+[node name="Spaghetti2" parent="." instance=ExtResource("5_dn5ey")]
+position = Vector2(-183, 137)

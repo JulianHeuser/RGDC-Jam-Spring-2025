@@ -23,6 +23,10 @@ func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 		ret_val = load("res://Pasta.tscn").instantiate()
 	elif a == 2 and b == 5:
 		ret_val = load("res://Spaghetti.tscn").instantiate()
+	elif a == 4 and b == 4:
+		ret_val = load("res://Spaghetti.tscn").instantiate()
+		ret_val.mass = node1.mass + node2.mass
+		ret_val.bigness = node1.bigness + node2.bigness
 		
 	if ret_val != null:
 		ret_val.position = (node1.position + node2.position)/2
