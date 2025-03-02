@@ -32,8 +32,6 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	$Sprite.modulate.r = 1 + 2 * frames_crushed/(float(crush_frames))
-	if type == 1 and frames_crushed > 0:
-		print(frames_crushed)
 	
 func _physics_process(delta: float) -> void:
 	pass
@@ -46,8 +44,6 @@ func crushable() -> void:
 func _integrate_forces(state : PhysicsDirectBodyState2D) -> void:
 	crush_factor = 0
 	for contact_index: int in state.get_contact_count():
-		if type == 1:
-			print(contact_index)
 		var object_hit := state.get_contact_collider_object(contact_index)
 		if (is_instance_valid(object_hit)): # To fix a case where an object hits the player as player is deleted during level transition (intermission)
 			var imp := state.get_contact_impulse(contact_index)

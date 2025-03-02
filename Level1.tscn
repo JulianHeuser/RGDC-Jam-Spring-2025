@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsoc7yqw2jmqh"]
+[gd_scene load_steps=9 format=3 uid="uid://dsoc7yqw2jmqh"]
 
 [ext_resource type="PackedScene" uid="uid://bk64v7oudt0cm" path="res://Tomato.tscn" id="1_kyxg0"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="2_cove1"]
-[ext_resource type="PackedScene" uid="uid://dbb1drg3dglnr" path="res://dough.tscn" id="3_cove1"]
-[ext_resource type="PackedScene" uid="uid://dxvli6q1qjide" path="res://Pasta.tscn" id="5_dn5ey"]
+[ext_resource type="PackedScene" uid="uid://dbb1drg3dglnr" path="res://Dough.tscn" id="3_cove1"]
 [ext_resource type="PackedScene" uid="uid://c48m5p5xfeswp" path="res://Water.tscn" id="5_lmyl5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mc20k"]
@@ -103,23 +102,6 @@ position = Vector2(-90, -235)
 
 [node name="Dough7" parent="Dough" instance=ExtResource("3_cove1")]
 position = Vector2(-393, -147)
-
-[node name="Pasta" type="Node2D" parent="."]
-
-[node name="Pasta" parent="Pasta" instance=ExtResource("5_dn5ey")]
-position = Vector2(-269, 74)
-
-[node name="Pasta2" parent="Pasta" instance=ExtResource("5_dn5ey")]
-position = Vector2(56, 134)
-
-[node name="Pasta3" parent="Pasta" instance=ExtResource("5_dn5ey")]
-position = Vector2(379, -207)
-
-[node name="Pasta4" parent="Pasta" instance=ExtResource("5_dn5ey")]
-position = Vector2(-97, 163)
-
-[node name="Pasta5" parent="Pasta" instance=ExtResource("5_dn5ey")]
-position = Vector2(-102, -120)
 
 [node name="Water1" parent="." instance=ExtResource("5_lmyl5")]
 position = Vector2(-327, -17)

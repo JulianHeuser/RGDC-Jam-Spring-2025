@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbb1drg3dglnr"]
+[gd_scene load_steps=5 format=3 uid="uid://dg5hd53gyu47"]
 
-[ext_resource type="Script" uid="uid://7p5umae4m8b0" path="res://crushController.gd" id="1_o260s"]
-[ext_resource type="Texture2D" uid="uid://e5gitdn5qdm0" path="res://dough.png" id="2_o260s"]
+[ext_resource type="Script" uid="uid://7p5umae4m8b0" path="res://crushController.gd" id="1_olqtq"]
+[ext_resource type="Texture2D" uid="uid://brcmtqcsxs461" path="res://icon.svg" id="2_olqtq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
 bounce = 0.16
@@ -9,7 +9,7 @@ bounce = 0.16
 [sub_resource type="CircleShape2D" id="CircleShape2D_xyqmk"]
 radius = 49.0
 
-[node name="Dough" type="RigidBody2D"]
+[node name="Sauce" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 3
 mass = 5.0
@@ -18,12 +18,12 @@ gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 3
 linear_damp = 0.5
-script = ExtResource("1_o260s")
-type = 1
+script = ExtResource("1_olqtq")
+type = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xyqmk")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.025, 0.025)
-texture = ExtResource("2_o260s")
+scale = Vector2(0.535, 0.535)
+texture = ExtResource("2_olqtq")
