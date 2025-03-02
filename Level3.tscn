@@ -80,15 +80,19 @@ shape = SubResource("WorldBoundaryShape2D_kyxg0")
 
 [node name="Water_Planet" parent="Water Planets" instance=ExtResource("3_qlmxs")]
 position = Vector2(-21, -192)
+drag_s = 0.0
 
 [node name="Water_Planet2" parent="Water Planets" instance=ExtResource("3_qlmxs")]
 position = Vector2(-51, 176)
+drag_s = 0.0
 
 [node name="Water_Planet3" parent="Water Planets" instance=ExtResource("3_qlmxs")]
 position = Vector2(-328, 122)
+drag_s = 0.0
 
 [node name="Water_Planet4" parent="Water Planets" instance=ExtResource("3_qlmxs")]
 position = Vector2(233, -215)
+drag_s = 0.0
 
 [node name="White Planets" type="Node2D" parent="."]
 
@@ -106,12 +110,15 @@ position = Vector2(341, -92)
 
 [node name="Red_Planet" parent="." instance=ExtResource("5_qlmxs")]
 position = Vector2(367, -201)
+drag_s = 0.0
 
 [node name="Red_Planet2" parent="." instance=ExtResource("5_qlmxs")]
 position = Vector2(478, 34)
+drag_s = 0.0
 
 [node name="Red_Planet3" parent="." instance=ExtResource("5_qlmxs")]
 position = Vector2(-425, -150)
+drag_s = 0.0
 
 [node name="SpaceRecipeBook\'" parent="." instance=ExtResource("6_545p4")]
 offset_left = -587.0

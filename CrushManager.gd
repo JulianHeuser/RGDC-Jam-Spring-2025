@@ -101,6 +101,8 @@ func crush_event(node1: Crushable, node2: Crushable) -> void:
 	
 			node1.queue_free()
 			node2.queue_free()
+			if level == 3:
+				new_node.drag_s = 0.0
 			_level_node.add_child(new_node)
 			var new_particle : GPUParticles2D = _crush_particle.instantiate()
 			new_particle.position = new_node.position
