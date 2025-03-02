@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7d6ab4had4q5"]
+[gd_scene load_steps=13 format=3 uid="uid://b7d6ab4had4q5"]
 
 [ext_resource type="Script" uid="uid://b17145dx4bar" path="res://Level1Controller.gd" id="1_545p4"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="3_nqeel"]
 [ext_resource type="PackedScene" uid="uid://lwhw51k1vg12" path="res://Crushables/Water_Planet.tscn" id="3_qlmxs"]
 [ext_resource type="PackedScene" uid="uid://ctu6qx5mrapl6" path="res://Crushables/White_Planet.tscn" id="4_545p4"]
 [ext_resource type="PackedScene" uid="uid://dxnclpo48y4pl" path="res://Crushables/Red_Planet.tscn" id="5_qlmxs"]
+[ext_resource type="PackedScene" uid="uid://dk4y8ew5b2whp" path="res://space_recipe_book'.tscn" id="6_545p4"]
 
 [sub_resource type="Gradient" id="Gradient_qlmxs"]
 offsets = PackedFloat32Array(0)
@@ -111,3 +112,17 @@ position = Vector2(478, 34)
 
 [node name="Red_Planet3" parent="." instance=ExtResource("5_qlmxs")]
 position = Vector2(-425, -150)
+
+[node name="SpaceRecipeBook\'" parent="." instance=ExtResource("6_545p4")]
+offset_left = -587.0
+offset_top = -330.0
+offset_right = -587.0
+offset_bottom = -330.0
+
+[node name="RecipeBut" parent="SpaceRecipeBook\'" index="0"]
+offset_left = 1017.0
+offset_top = 10.0
+offset_right = 1147.0
+offset_bottom = 45.0
+
+[editable path="SpaceRecipeBook\'"]
