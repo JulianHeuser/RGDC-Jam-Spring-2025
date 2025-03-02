@@ -82,6 +82,12 @@ func crush_event(node1: Crushable, node2: Crushable) -> void:
 	if node1 != null and node2 != null:
 		var new_node: Node2D = determine_combine_result(node1, node2)
 		if new_node != null:
+			
+			var combine_sound := AudioStreamPlayer2D.new()
+			combine_sound.stream = load("res://combine_sound.wav")
+			add_child(combine_sound)
+			combine_sound.play()
+	
 			node1.queue_free()
 			node2.queue_free()
 			_level_node.add_child(new_node)
