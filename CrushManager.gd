@@ -42,10 +42,13 @@ func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 	if level == 1 or level == 2:
 		if a == Crushable.CrushableType.TOMATO and b == Crushable.CrushableType.TOMATO:
 			ret_val = load("res://Crushables/Sauce.tscn").instantiate()
+			ret_val.bigness = (node1.bigness + node2.bigness)/2
 		elif a == Crushable.CrushableType.DOUGH and b == Crushable.CrushableType.WATER:
 			ret_val = load("res://Crushables/Pasta.tscn").instantiate()
+			ret_val.bigness = (node1.bigness + node2.bigness)/2
 		elif a == Crushable.CrushableType.PASTA and b == Crushable.CrushableType.SAUCE:
 			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate()
+			ret_val.bigness = (node1.bigness + node2.bigness)/2
 		elif a == Crushable.CrushableType.SPAGHETTI and b == Crushable.CrushableType.SPAGHETTI:
 			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate()
 			ret_val.mass = node1.mass + node2.mass
