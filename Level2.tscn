@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwjbdoaqrr6yc"]
 
 [ext_resource type="Script" uid="uid://b17145dx4bar" path="res://Level1Controller.gd" id="1_wwdpc"]
-[ext_resource type="Texture2D" uid="uid://xqdghv3thvri" path="res://Wood Texture.png" id="2_6faey"]
+[ext_resource type="Texture2D" uid="uid://dwkpxshcwef2q" path="res://playmat.jpg" id="2_s8dg4"]
 [ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="3_nc7oo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mc20k"]
@@ -20,10 +20,9 @@ script = ExtResource("1_wwdpc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-0.751301, -2.67029e-05)
-rotation = 1.5708
-scale = Vector2(0.316277, 0.562803)
-texture = ExtResource("2_6faey")
+position = Vector2(-0.499969, -1)
+scale = Vector2(1.29195, 1.09612)
+texture = ExtResource("2_s8dg4")
 
 [node name="Rope" parent="." instance=ExtResource("3_nc7oo")]
 segment_count = 20
