@@ -26,6 +26,7 @@ normal = Vector2(0, 1)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_545p4")
+spawn_to_replenish = Array[PackedScene]([ExtResource("5_qlmxs"), ExtResource("3_qlmxs"), ExtResource("3_qlmxs"), ExtResource("5_qlmxs")])
 level = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -36,7 +37,7 @@ scale = Vector2(10.1554, 18.1526)
 texture = SubResource("GradientTexture2D_545p4")
 
 [node name="Rope" parent="." instance=ExtResource("3_nqeel")]
-segment_count = 20
+segment_count = 40
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

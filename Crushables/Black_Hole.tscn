@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://drxk006jn3t40"]
+
+[ext_resource type="Script" uid="uid://7p5umae4m8b0" path="res://crushController.gd" id="1_bq0l6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
+bounce = 0.16
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xyqmk"]
+radius = 49.0
+
+[sub_resource type="Gradient" id="Gradient_2aq7x"]
+offsets = PackedFloat32Array(0, 0.52, 0.75, 0.97)
+colors = PackedColorArray(0, 0, 0, 1, 0.153621, 0, 0.225673, 1, 0.443137, 0, 0.65098, 1, 0.443137, 0, 0.65098, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bq0l6"]
+gradient = SubResource("Gradient_2aq7x")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_bq0l6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rmaxh"]
+gradient = SubResource("Gradient_bq0l6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2aq7x"]
+particle_flag_disable_z = true
+emission_shape = 4
+emission_point_texture = SubResource("GradientTexture2D_rmaxh")
+emission_point_count = 1
+gravity = Vector3(0, 98, 0)
+
+[node name="Black_Hole" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+mass = 25.0
+physics_material_override = SubResource("PhysicsMaterial_xyqmk")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
+linear_damp = 0.5
+script = ExtResource("1_bq0l6")
+type = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xyqmk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_bq0l6")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_2aq7x")

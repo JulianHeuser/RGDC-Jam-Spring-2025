@@ -12,6 +12,7 @@ enum CrushableType {
 	WHITE_PLANET,
 	RED_PLANET,
 	STAR,
+	BLACK_HOLE
 }
 
 @export var crush_threshold: float = 70
@@ -19,12 +20,7 @@ enum CrushableType {
 
 @export var bigness: float = 1
 
-# what type of crushable object is this?
-# 0: tomato
-# 1: dough
-# 2: pasta
-# 3: water
-# 4: spaghetti!
+## what type of crushable object is this?
 @export var type: CrushableType = CrushableType.TOMATO
 
 var frames_crushed: float = 0
