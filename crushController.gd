@@ -25,12 +25,15 @@ signal crush_event(node1: Crushable, node2: Crushable)
 
 var crush_obj: Node
 
+var crush_factor: float = 0
+
 func _ready() -> void:
 	crush_event.connect(CrushMgr.crush_event)
-
 	
 func _process(delta: float) -> void:
-	pass
+	$Sprite.modulate.r = 1 + 2 * frames_crushed/(float(crush_frames))
+	if type == 1 and frames_crushed > 0:
+		print(frames_crushed)
 	
 func _physics_process(delta: float) -> void:
 	pass
@@ -41,25 +44,28 @@ func crushable() -> void:
 
 # On the rigid body:
 func _integrate_forces(state : PhysicsDirectBodyState2D) -> void:
-	var crush_factor: float = 0;
+	crush_factor = 0
 	for contact_index: int in state.get_contact_count():
+		if type == 1:
+			print(contact_index)
 		var object_hit := state.get_contact_collider_object(contact_index)
 		if (is_instance_valid(object_hit)): # To fix a case where an object hits the player as player is deleted during level transition (intermission)
 			var imp := state.get_contact_impulse(contact_index)
 			var collide_obj := state.get_contact_collider_object(contact_index)
 			
+			crush_factor += imp.length()
 			if collide_obj.has_method("crushable"):
 				crush_obj = collide_obj
-				crush_factor += imp.length()
 			
 	if crush_factor > crush_threshold:
 		if frames_crushed < crush_frames:
 			frames_crushed += 1
 	else:
-		if frames_crushed > 1:
-			frames_crushed -= 0.1
+		if frames_crushed > 0:
+			frames_crushed -= 0.5
 		
-	#print(crush_factor)
+	#if type == 1:
+		#print(crush_factor)
 		
 	if frames_crushed > crush_frames:
 		(func() -> void: crush_event.emit(self, crush_obj)).call_deferred()
