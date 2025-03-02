@@ -11,7 +11,8 @@ var _crush_particle := preload("res://crush_particles.tscn")
 var _levels : PackedStringArray = [
 	"res://Level1.tscn",
 	"res://Level2.tscn",
-	"res://Level3.tscn"
+	"res://Level3.tscn",
+	"res://WinScreen.tscn"
 ]
 
 func set_level(new_level : int) -> void:
@@ -35,6 +36,16 @@ func next_level() -> void:
 	get_tree().root.add_child(_level_node)
 	AudioServer.set_bus_effect_enabled(0, 0, level == 3)
 	AudioServer.set_bus_effect_enabled(0, 1, level == 3)
+	
+func play_again() -> void:
+	_level_node.queue_free()
+	level = 0
+	_level_node = load(_levels[level]).instantiate()
+	get_tree().root.add_child(_level_node)
+	AudioServer.set_bus_effect_enabled(0, 0, level == 3)
+	AudioServer.set_bus_effect_enabled(0, 1, level == 3)
+	level = 1
+	
 
 func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 	var ret_val: Node = null
