@@ -4,12 +4,11 @@ extends StaticBody2D
 @export var max_spawnable_allowed: int = 10
 
 
-fun _timer_timeout() -> void:
-	print("timed out")
+func _timer_timeout() -> void:
+	pass
+	# spawn a new spawnable in the parent
+	
+	#get_parent().add_child()
 
 func _ready() -> void:
-	
-
-func _process() -> void:
-	t
-	pass
+	$Timer.timeout.connect(_timer_timeout)

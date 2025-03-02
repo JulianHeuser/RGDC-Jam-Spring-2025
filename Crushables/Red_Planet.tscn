@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxnclpo48y4pl"]
+
+[ext_resource type="Script" uid="uid://7p5umae4m8b0" path="res://crushController.gd" id="1_hjavv"]
+[ext_resource type="Texture2D" uid="uid://pgjkvmdte5nt" path="res://Crushables/imgs/Red_Planet.png" id="2_hjavv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xyqmk"]
+bounce = 0.16
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xyqmk"]
+radius = 49.0
+
+[node name="Red_Planet" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_xyqmk")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 3
+linear_damp = 0.5
+script = ExtResource("1_hjavv")
+type = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xyqmk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(0.109, 0.101)
+texture = ExtResource("2_hjavv")

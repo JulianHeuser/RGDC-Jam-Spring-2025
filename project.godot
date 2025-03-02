@@ -29,7 +29,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot-vim-main/godot-vim-main/addons/godot-vim/plugin.cfg")
 
 [input]
 
