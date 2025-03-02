@@ -62,4 +62,8 @@ func _integrate_forces(state : PhysicsDirectBodyState2D) -> void:
 	#print(crush_factor)
 		
 	if frames_crushed > crush_frames:
-		crush_event.emit(self, crush_obj)
+		(func() -> void: crush_event.emit(self, crush_obj)).call_deferred()
+		
+		
+		
+		
