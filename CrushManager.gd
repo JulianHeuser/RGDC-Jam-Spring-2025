@@ -1,8 +1,6 @@
 class_name CrushManager
 extends Node
 
-
-
 # 0: main menu 1-3: game levels
 var level : int = 0
 
@@ -18,16 +16,26 @@ var _levels : PackedStringArray = [
 
 func set_level(new_level : int) -> void:
 	level = new_level
+	AudioServer.set_bus_effect_enabled(0, 0, level == 3)
+	AudioServer.set_bus_effect_enabled(0, 1, level == 3)
 
 func _ready() -> void:
 	if _level_node == null:
 		_level_node = get_tree().root.get_child(1)
+		
+	var music := AudioStreamPlayer2D.new()
+	music.stream = load("res://music.wav")
+	add_child(music)
+	music.play()
+	
 
 func next_level() -> void:
 	_level_node.queue_free()
 	_level_node = load(_levels[level]).instantiate()
 	get_tree().root.add_child(_level_node)
 	level += 1
+	AudioServer.set_bus_effect_enabled(0, 0, level == 3)
+	AudioServer.set_bus_effect_enabled(0, 1, level == 3)
 
 func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 	var ret_val: Node = null
@@ -53,8 +61,12 @@ func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate()
 			ret_val.mass = node1.mass + node2.mass
 			ret_val.bigness = node1.bigness + node2.bigness
-			if ret_val.bigness >= 4:
-				next_level()
+			if level == 1:
+				if ret_val.bigness >= 4:
+					next_level()
+			elif level == 2:
+				if ret_val.bigness >= 4:
+					next_level()	
 	elif level == 3:
 		if a == Crushable.CrushableType.RED_PLANET and b == Crushable.CrushableType.RED_PLANET:
 			ret_val = load("res://Crushables/Sauce.tscn").instantiate()
