@@ -12,6 +12,8 @@ func made_spaghetti() -> void:
 	
 func _move_to_random_pos(node: Node) -> Node:
 	node.set_position(Vector2(randf_range(int(-get_viewport_rect().size.x/2), int(get_viewport_rect().size.x/2)), randf_range(-get_viewport_rect().size.y/2, get_viewport_rect().size.y/2)))
+	if level == 3:
+		node.drag_s = 0.0
 	return node
 
 func _spawn_ingredients() -> void:

@@ -20,6 +20,8 @@ enum CrushableType {
 
 @export var bigness: float = 1
 
+@export var drag_s : float = 5.0
+
 ## what type of crushable object is this?
 @export var type: CrushableType = CrushableType.TOMATO
 
@@ -37,6 +39,9 @@ func _ready() -> void:
 	
 	# random velocity at spawn
 	linear_velocity = Vector2.from_angle(randf()*2.0*PI) * 100.0
+	
+	linear_damp = drag_s
+	angular_damp = drag_s
 	
 func _process(_delta: float) -> void:
 	$Sprite.modulate.r = 1 + 2 * frames_crushed/(float(crush_frames))
