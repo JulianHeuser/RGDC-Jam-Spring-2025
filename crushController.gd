@@ -38,7 +38,7 @@ func _ready() -> void:
 	$CollisionShape2D.shape = $CollisionShape2D.shape.duplicate()
 	
 	# random velocity at spawn
-	linear_velocity = Vector2.from_angle(randf()*2.0*PI) * 100.0
+	linear_velocity = Vector2.from_angle(randf()*2.0*PI) * 900.0
 	
 	linear_damp = drag_s
 	angular_damp = drag_s
