@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RGDC Spring Jam"
-run/main_scene="uid://dsoc7yqw2jmqh"
+run/main_scene="uid://icf0nyb18ui8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

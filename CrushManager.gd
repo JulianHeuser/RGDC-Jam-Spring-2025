@@ -68,7 +68,7 @@ func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 		if a == Crushable.CrushableType.PASTA and b == Crushable.CrushableType.SAUCE:
 			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate().duplicate()
 		elif a == Crushable.CrushableType.SPAGHETTI and b == Crushable.CrushableType.SPAGHETTI:
-			if node1.bigness >= 4 or node2.bigness >= 4:
+			if node1.bigness >= 4 or node2.bigness >= 2:
 				ret_val = load("res://Crushables/Black_Hole.tscn").instantiate().duplicate()
 			else: 
 				ret_val = load("res://Crushables/Star.tscn").instantiate().duplicate()
