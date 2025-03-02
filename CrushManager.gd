@@ -44,3 +44,6 @@ func crush_event(node1: Crushable, node2: Crushable) -> void:
 			new_particle.position = new_node.position
 			new_particle.restart()
 			get_tree().root.get_node("Level1").add_child(new_particle)
+			
+			if new_node.type == 4:
+				get_tree().root.get_node("Level1").made_spaghetti()
