@@ -33,7 +33,6 @@ func next_level() -> void:
 	_level_node.queue_free()
 	_level_node = load(_levels[level]).instantiate()
 	get_tree().root.add_child(_level_node)
-	level += 1
 	AudioServer.set_bus_effect_enabled(0, 0, level == 3)
 	AudioServer.set_bus_effect_enabled(0, 1, level == 3)
 
@@ -61,12 +60,6 @@ func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 			ret_val = load("res://Crushables/Spaghetti.tscn").instantiate()
 			ret_val.mass = node1.mass + node2.mass
 			ret_val.bigness = node1.bigness + node2.bigness
-			if level == 1:
-				if ret_val.bigness >= 4:
-					next_level()
-			elif level == 2:
-				if ret_val.bigness >= 4:
-					next_level()	
 	elif level == 3:
 		if a == Crushable.CrushableType.RED_PLANET and b == Crushable.CrushableType.RED_PLANET:
 			ret_val = load("res://Crushables/Sauce.tscn").instantiate()
@@ -99,3 +92,13 @@ func crush_event(node1: Crushable, node2: Crushable) -> void:
 			
 			if new_node.type == Crushable.CrushableType.SPAGHETTI:
 				_level_node.made_spaghetti()
+			
+			if level == 1:
+				if new_node.type == Crushable.CrushableType.SPAGHETTI and new_node.bigness >= 2:
+					next_level()
+			elif level == 2:
+				if new_node.type == Crushable.CrushableType.SPAGHETTI and new_node.bigness >= 4:
+					next_level()
+			elif level == 3:
+				# TODO: add end game here
+				pass
