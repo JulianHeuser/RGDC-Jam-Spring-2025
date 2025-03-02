@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://icf0nyb18ui8"]
+[gd_scene load_steps=10 format=3 uid="uid://icf0nyb18ui8"]
 
 [ext_resource type="Texture2D" uid="uid://dekyxtdqey575" path="res://Crushables/imgs/Spaghetti.png" id="1_wugcc"]
 [ext_resource type="FontFile" uid="uid://bcb6rbfthaxw3" path="res://ComicNeue-Bold.ttf" id="2_gtid3"]
@@ -35,6 +35,20 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.145)
+
+[sub_resource type="GDScript" id="GDScript_wugcc"]
+script/source = "extends Button
+
+func _ready() -> void:
+	pressed.connect(CrushMgr.next_level)
+"
+
+[sub_resource type="GDScript" id="GDScript_gtid3"]
+script/source = "extends Button
+
+func _ready() -> void:
+	pressed.connect(get_tree().quit)
+"
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -98,6 +112,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wugcc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gtid3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b3bc3")
 text = "Start Game"
+script = SubResource("GDScript_wugcc")
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -112,3 +127,4 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wugcc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gtid3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_b3bc3")
 text = "Exit"
+script = SubResource("GDScript_gtid3")

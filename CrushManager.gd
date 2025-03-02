@@ -17,7 +17,7 @@ var _levels : PackedStringArray = [
 func set_level(new_level : int) -> void:
 	level = new_level
 
-func _next_level() -> void:
+func next_level() -> void:
 	get_tree().root.get_child(1).queue_free()
 	get_tree().root.add_child(load(_levels[level]).instantiate())
 	level += 1
@@ -44,7 +44,7 @@ func determine_combine_result(node1: Crushable, node2: Crushable) -> Node:
 			ret_val.mass = node1.mass + node2.mass
 			ret_val.bigness = node1.bigness + node2.bigness
 			if ret_val.bigness >= 1:
-				_next_level()
+				next_level()
 	elif level == 2:
 		if a == Crushable.CrushableType.RED_PLANET and b == Crushable.CrushableType.RED_PLANET:
 			ret_val = load("res://Crushables/Sauce.tscn").instantiate()
