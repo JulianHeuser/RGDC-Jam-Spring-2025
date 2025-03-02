@@ -1,0 +1,255 @@
+[gd_scene load_steps=15 format=3 uid="uid://d3ebcpckytqtm"]
+
+[ext_resource type="FontFile" uid="uid://c86idky3g50rh" path="res://ComicNeue-Regular.ttf" id="1_kffn4"]
+[ext_resource type="Texture2D" uid="uid://coa216wsruevs" path="res://Crushables/imgs/tomato.png" id="2_yghyg"]
+[ext_resource type="Texture2D" uid="uid://d2ndwj7t1blky" path="res://Crushables/imgs/Sauce.png" id="3_3kwyq"]
+[ext_resource type="Texture2D" uid="uid://e5gitdn5qdm0" path="res://Crushables/imgs/dough.png" id="4_82a5l"]
+[ext_resource type="Texture2D" uid="uid://cp0x27y1s0vla" path="res://Crushables/imgs/Water.png" id="5_l8ved"]
+[ext_resource type="Texture2D" uid="uid://ccg0w874pqnll" path="res://Crushables/imgs/Pasta.png" id="6_lh7ch"]
+[ext_resource type="Texture2D" uid="uid://dekyxtdqey575" path="res://Crushables/imgs/Spaghetti.png" id="7_uw5lj"]
+[ext_resource type="FontFile" uid="uid://bcb6rbfthaxw3" path="res://ComicNeue-Bold.ttf" id="8_l8ved"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_roqqi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imajk"]
+bg_color = Color(0.698039, 0.427451, 0.0745098, 0.968627)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(0, 2.215)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_roqqi"]
+bg_color = Color(0.602404, 0.364752, 0.0566149, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(0, 2.215)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kffn4"]
+bg_color = Color(0.733333, 0.45098, 0.0823529, 0.313726)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 0.211765)
+shadow_size = 5
+shadow_offset = Vector2(0, 2.215)
+
+[sub_resource type="GDScript" id="GDScript_l8ved"]
+script/source = "extends Control
+
+func _ready() -> void:
+	visible = false
+
+func _toggle_visibility() -> void:
+	visible = !visible
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0berw"]
+bg_color = Color(0.611651, 0.372338, 0.0580202, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0.211765)
+shadow_size = 19
+shadow_offset = Vector2(0, 2.215)
+
+[node name="RecipeBook" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RecipeBut" type="Button" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_top = 2.0
+offset_right = -4.0
+offset_bottom = 37.0
+grow_horizontal = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0.317647)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_kffn4")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxEmpty_roqqi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_imajk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_roqqi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kffn4")
+text = "Recipes"
+
+[node name="Book" type="Control" parent="."]
+z_index = 2
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+script = SubResource("GDScript_l8ved")
+
+[node name="PanelContainer" type="PanelContainer" parent="Book"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -160.0
+offset_right = 153.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0berw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Book/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Book/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture = ExtResource("2_yghyg")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="Book/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="TextureRect" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("2_yghyg")
+expand_mode = 2
+
+[node name="Label3" type="Label" parent="Book/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "="
+
+[node name="TextureRect3" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("3_3kwyq")
+expand_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Book/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture = ExtResource("4_82a5l")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="Book/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="TextureRect" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("5_l8ved")
+expand_mode = 2
+
+[node name="Label3" type="Label" parent="Book/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "="
+
+[node name="TextureRect3" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("6_lh7ch")
+expand_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Book/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture = ExtResource("3_3kwyq")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="Book/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="TextureRect" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("6_lh7ch")
+expand_mode = 2
+
+[node name="Label3" type="Label" parent="Book/PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "="
+
+[node name="TextureRect3" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("7_uw5lj")
+expand_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Book/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+texture = ExtResource("7_uw5lj")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="Book/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="TextureRect" type="TextureRect" parent="Book/PanelContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = ExtResource("7_uw5lj")
+expand_mode = 2
+
+[node name="Label3" type="Label" parent="Book/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "="
+
+[node name="TextureRect3" type="Label" parent="Book/PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_l8ved")
+theme_override_font_sizes/font_size = 45
+text = " ??"
+
+[connection signal="pressed" from="RecipeBut" to="Book" method="_toggle_visibility"]
