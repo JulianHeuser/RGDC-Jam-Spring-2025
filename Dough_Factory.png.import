@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgq18036t8kav"
-path="res://.godot/imported/Dough_Factory.png-6ef4f5c7ee1a757b7c957ede47fa520b.ctex"
+path="res://.godot/imported/Dough_Factory.png-f8cdabb4542eb619ff294c5a40029da1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crushables/imgs/Dough_Factory.png"
-dest_files=["res://.godot/imported/Dough_Factory.png-6ef4f5c7ee1a757b7c957ede47fa520b.ctex"]
+source_file="res://Dough_Factory.png"
+dest_files=["res://.godot/imported/Dough_Factory.png-f8cdabb4542eb619ff294c5a40029da1.ctex"]
 
 [params]
 

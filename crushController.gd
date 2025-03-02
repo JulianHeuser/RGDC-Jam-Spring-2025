@@ -31,6 +31,7 @@ var crush_factor: float = 0
 
 func _ready() -> void:
 	crush_event.connect(CrushMgr.crush_event)
+	$CollisionShape2D.shape = $CollisionShape2D.shape.duplicate()
 	
 func _process(delta: float) -> void:
 	$Sprite.modulate.r = 1 + 2 * frames_crushed/(float(crush_frames))

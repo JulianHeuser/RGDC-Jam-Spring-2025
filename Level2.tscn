@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwjbdoaqrr6yc"]
+
+[ext_resource type="Script" uid="uid://b17145dx4bar" path="res://Level1Controller.gd" id="1_wwdpc"]
+[ext_resource type="Texture2D" uid="uid://xqdghv3thvri" path="res://Wood Texture.png" id="2_6faey"]
+[ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="3_nc7oo"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mc20k"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cove1"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dwyiq"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kyxg0"]
+normal = Vector2(0, 1)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_wwdpc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-0.751301, -2.67029e-05)
+rotation = 1.5708
+scale = Vector2(0.316277, 0.562803)
+texture = ExtResource("2_6faey")
+
+[node name="Rope" parent="." instance=ExtResource("3_nc7oo")]
+segment_count = 20
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WorldBoundaries" type="Node2D" parent="."]
+
+[node name="Bottom" type="StaticBody2D" parent="WorldBoundaries"]
+collision_layer = 7
+collision_mask = 3
+
+[node name="WorldBoundaries_Bottom#CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Bottom"]
+position = Vector2(0, 324)
+shape = SubResource("WorldBoundaryShape2D_mc20k")
+
+[node name="Left" type="StaticBody2D" parent="WorldBoundaries"]
+collision_layer = 7
+collision_mask = 3
+
+[node name="WorldBoundaries_Left#CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Left"]
+position = Vector2(-576, 0)
+shape = SubResource("WorldBoundaryShape2D_cove1")
+
+[node name="Right" type="StaticBody2D" parent="WorldBoundaries"]
+collision_layer = 7
+collision_mask = 3
+
+[node name="WorldBoundaries_Right#CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Right"]
+position = Vector2(576, 0)
+shape = SubResource("WorldBoundaryShape2D_dwyiq")
+
+[node name="Top0" type="StaticBody2D" parent="WorldBoundaries"]
+collision_layer = 7
+collision_mask = 3
+
+[node name="WorldBoundaries_Top#CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Top0"]
+position = Vector2(0, -324)
+shape = SubResource("WorldBoundaryShape2D_kyxg0")
