@@ -1,18 +1,14 @@
 extends Node2D
 
+@export var spawn_to_replenish : Array[PackedScene]
+
 func made_spaghetti() -> void:
 	_spawn_ingredients()
 	
 func _move_to_random_pos(node: Node) -> Node:
-	node.set_position(Vector2(randf_range(-1152/2, 1152/2), randf_range(-648/2, 648/2)))
+	node.set_position(Vector2(randf_range(int(-get_viewport_rect().size.x/2), int(get_viewport_rect().size.x/2)), randf_range(-get_viewport_rect().size.y/2, get_viewport_rect().size.y/2)))
 	return node
 
 func _spawn_ingredients() -> void:
-	add_child(_move_to_random_pos(load("res://Crushables/Water.tscn").instantiate()))
-	add_child(_move_to_random_pos(load("res://Crushables/Tomato.tscn").instantiate()))
-	add_child(_move_to_random_pos(load("res://Crushables/Tomato.tscn").instantiate()))
-	add_child(_move_to_random_pos(load("res://Crushables/Dough.tscn").instantiate()))
-	
-func _process(delta: float) -> void:
-	pass
-	
+	for r : PackedScene in spawn_to_replenish:
+		add_child(_move_to_random_pos(r.instantiate()))

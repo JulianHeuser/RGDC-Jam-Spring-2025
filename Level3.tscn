@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsoc7yqw2jmqh"]
+[gd_scene load_steps=11 format=3 uid="uid://b7d6ab4had4q5"]
 
-[ext_resource type="PackedScene" uid="uid://bk64v7oudt0cm" path="res://Crushables/Tomato.tscn" id="1_kyxg0"]
-[ext_resource type="Texture2D" uid="uid://xqdghv3thvri" path="res://Wood Texture.png" id="1_lmyl5"]
-[ext_resource type="Script" uid="uid://b17145dx4bar" path="res://Level1Controller.gd" id="1_mlbie"]
-[ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="2_cove1"]
-[ext_resource type="PackedScene" uid="uid://dbb1drg3dglnr" path="res://Crushables/Dough.tscn" id="3_cove1"]
-[ext_resource type="PackedScene" uid="uid://c48m5p5xfeswp" path="res://Crushables/Water.tscn" id="5_lmyl5"]
+[ext_resource type="Script" uid="uid://b17145dx4bar" path="res://Level1Controller.gd" id="1_545p4"]
+[ext_resource type="Texture2D" uid="uid://xqdghv3thvri" path="res://Wood Texture.png" id="2_h8oof"]
+[ext_resource type="PackedScene" uid="uid://bl88cq8mwj0cx" path="res://Rope.tscn" id="3_nqeel"]
+[ext_resource type="PackedScene" uid="uid://bk64v7oudt0cm" path="res://Crushables/Tomato.tscn" id="4_u5lf4"]
+[ext_resource type="PackedScene" uid="uid://dbb1drg3dglnr" path="res://Crushables/Dough.tscn" id="5_7swbh"]
+[ext_resource type="PackedScene" uid="uid://c48m5p5xfeswp" path="res://Crushables/Water.tscn" id="6_ewulq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mc20k"]
 
@@ -19,17 +19,16 @@ normal = Vector2(-1, 0)
 normal = Vector2(0, 1)
 
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_mlbie")
-spawn_to_replenish = Array[PackedScene]([ExtResource("5_lmyl5"), ExtResource("1_kyxg0"), ExtResource("1_kyxg0"), ExtResource("3_cove1")])
+script = ExtResource("1_545p4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(-0.751301, -2.67029e-05)
 rotation = 1.5708
 scale = Vector2(0.316277, 0.562803)
-texture = ExtResource("1_lmyl5")
+texture = ExtResource("2_h8oof")
 
-[node name="Rope" parent="." instance=ExtResource("2_cove1")]
+[node name="Rope" parent="." instance=ExtResource("3_nqeel")]
 segment_count = 20
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -70,61 +69,61 @@ shape = SubResource("WorldBoundaryShape2D_kyxg0")
 
 [node name="Tomatoes" type="Node2D" parent="."]
 
-[node name="Tomato" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
+[node name="Tomato" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
 position = Vector2(359, 10)
 
-[node name="Tomato2" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
+[node name="Tomato2" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
 position = Vector2(63, -87)
 
-[node name="Tomato3" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
+[node name="Tomato3" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
 position = Vector2(-36, 26)
 
-[node name="Tomato4" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
+[node name="Tomato4" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
 position = Vector2(247, -131)
 
-[node name="Tomato5" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
+[node name="Tomato5" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
 position = Vector2(76, 243)
 
-[node name="Tomato6" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
+[node name="Tomato6" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
 position = Vector2(168, 73)
 
-[node name="Tomato7" parent="Tomatoes" instance=ExtResource("1_kyxg0")]
+[node name="Tomato7" parent="Tomatoes" instance=ExtResource("4_u5lf4")]
 position = Vector2(-217, -81)
 
 [node name="Dough" type="Node2D" parent="."]
 
-[node name="Dough" parent="Dough" instance=ExtResource("3_cove1")]
+[node name="Dough" parent="Dough" instance=ExtResource("5_7swbh")]
 position = Vector2(-356, 158)
 
-[node name="Dough2" parent="Dough" instance=ExtResource("3_cove1")]
+[node name="Dough2" parent="Dough" instance=ExtResource("5_7swbh")]
 position = Vector2(101, -237)
 
-[node name="Dough3" parent="Dough" instance=ExtResource("3_cove1")]
+[node name="Dough3" parent="Dough" instance=ExtResource("5_7swbh")]
 position = Vector2(365, 190)
 
-[node name="Dough4" parent="Dough" instance=ExtResource("3_cove1")]
+[node name="Dough4" parent="Dough" instance=ExtResource("5_7swbh")]
 position = Vector2(249, -17)
 
-[node name="Dough5" parent="Dough" instance=ExtResource("3_cove1")]
+[node name="Dough5" parent="Dough" instance=ExtResource("5_7swbh")]
 position = Vector2(-117, 6)
 
-[node name="Dough6" parent="Dough" instance=ExtResource("3_cove1")]
+[node name="Dough6" parent="Dough" instance=ExtResource("5_7swbh")]
 position = Vector2(-90, -235)
 
-[node name="Dough7" parent="Dough" instance=ExtResource("3_cove1")]
+[node name="Dough7" parent="Dough" instance=ExtResource("5_7swbh")]
 position = Vector2(-393, -147)
 
-[node name="Water1" parent="." instance=ExtResource("5_lmyl5")]
+[node name="Water1" parent="." instance=ExtResource("6_ewulq")]
 position = Vector2(-327, -17)
 
-[node name="Water2" parent="." instance=ExtResource("5_lmyl5")]
+[node name="Water2" parent="." instance=ExtResource("6_ewulq")]
 position = Vector2(-419, -61)
 
-[node name="Water3" parent="." instance=ExtResource("5_lmyl5")]
+[node name="Water3" parent="." instance=ExtResource("6_ewulq")]
 position = Vector2(-457, 167)
 
-[node name="Water4" parent="." instance=ExtResource("5_lmyl5")]
+[node name="Water4" parent="." instance=ExtResource("6_ewulq")]
 position = Vector2(-497, -77)
 
-[node name="Water5" parent="." instance=ExtResource("5_lmyl5")]
+[node name="Water5" parent="." instance=ExtResource("6_ewulq")]
 position = Vector2(-397, 44)
