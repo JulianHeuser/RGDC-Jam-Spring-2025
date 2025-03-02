@@ -47,6 +47,8 @@ func _ready() -> void:
 script/source = "extends Button
 
 func _ready() -> void:
+	AudioServer.set_bus_effect_enabled(0, 0, false)
+	AudioServer.set_bus_effect_enabled(0, 1, false)
 	pressed.connect(get_tree().quit)
 "
 

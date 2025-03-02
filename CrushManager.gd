@@ -17,8 +17,6 @@ var _levels : PackedStringArray = [
 
 func set_level(new_level : int) -> void:
 	level = new_level
-	AudioServer.set_bus_effect_enabled(0, 0, level == 3)
-	AudioServer.set_bus_effect_enabled(0, 1, level == 3)
 
 func _ready() -> void:
 	if _level_node == null:
@@ -34,16 +32,12 @@ func next_level() -> void:
 	_level_node.queue_free()
 	_level_node = load(_levels[level]).instantiate()
 	get_tree().root.add_child(_level_node)
-	AudioServer.set_bus_effect_enabled(0, 0, level == 3)
-	AudioServer.set_bus_effect_enabled(0, 1, level == 3)
 	
 func play_again() -> void:
 	_level_node.queue_free()
 	level = 0
 	_level_node = load(_levels[level]).instantiate()
 	get_tree().root.add_child(_level_node)
-	AudioServer.set_bus_effect_enabled(0, 0, level == 3)
-	AudioServer.set_bus_effect_enabled(0, 1, level == 3)
 	level = 1
 	
 
@@ -112,10 +106,10 @@ func crush_event(node1: Crushable, node2: Crushable) -> void:
 				_level_node.made_spaghetti()
 			
 			if level == 1:
-				if new_node.type == Crushable.CrushableType.SPAGHETTI and new_node.bigness >= 2:
+				if new_node.type == Crushable.CrushableType.SPAGHETTI and new_node.bigness >= 4:
 					next_level()
 			elif level == 2:
-				if new_node.type == Crushable.CrushableType.SPAGHETTI and new_node.bigness >= 4:
+				if new_node.type == Crushable.CrushableType.SPAGHETTI and new_node.bigness >= 2:
 					next_level()
 			elif level == 3:
 				# TODO: add end game here

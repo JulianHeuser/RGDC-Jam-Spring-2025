@@ -6,6 +6,8 @@ extends Node2D
 
 func _ready() -> void:
 	CrushMgr.set_level(level)
+	AudioServer.set_bus_effect_enabled(0, 0, level == 3)
+	AudioServer.set_bus_effect_enabled(0, 1, level == 3)
 
 func made_spaghetti() -> void:
 	_spawn_ingredients()
